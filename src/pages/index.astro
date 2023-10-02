@@ -1,0 +1,27 @@
+---
+import PageLayout from "@layouts/Page.astro";
+import SubHeading from "@components/Plugs/SubHeading.jsx";
+import Heading from "@components/Plugs/Heading.jsx";
+import BlogPost from "@components/BlogPost/BlogPost.astro";
+
+const posts = (await Astro.glob("./traducciones/*.{md,mdx}")).sort(
+  (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+
+const myFeaturedPost = posts.filter((post) => post.frontmatter.featured);
+---
+
+<PageLayout>
+  <Heading
+    client:visible
+    title="👋"
+    subtitle="En este espacio encontrará textos, historias y recursos que se relacionan de alguna manera con el mundo del diseño, la programación y el software libre."
+  />
+  <SubHeading client:visible title="Traducciones recomendadas" link="true" />
+  {
+    myFeaturedPost.map((post) => (
+      <BlogPost title={post.frontmatter.title} description={post.frontmatter.description} url={post.url} />
+    ))
+  }
+  
+</PageLayout>
