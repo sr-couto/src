@@ -41,6 +41,7 @@
     "reading-time-i18n": "^1.2.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",
+    "sharp": "^0.32.6",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
     "vue": "^3.3.4"

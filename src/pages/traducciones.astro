@@ -1,10 +1,9 @@
 ---
 import Layout from "@/layouts/Page.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/config";
-import Heading from "@/components/Plugs/Heading.jsx";
+import Heading from "@/components/Plugs/Heading.astro";
 import BlogPost from "@/components/BlogPost/BlogPost.astro";
-
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 const allBlogPosts = await getCollection("traducciones");
 
@@ -12,7 +11,7 @@ const posts = allBlogPosts;
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <Heading title="Traducciones 📜" subtitle="" />
+  <Heading title="Traducciones" subtitle="Textos en español de contenido en ingles encontrado en libros, videos y charlas." />
   {
     posts.map((post) => (
       <BlogPost
