@@ -5,14 +5,13 @@ import Heading from "@/components/Plugs/Heading.astro";
 import BlogPost from "@/components/BlogPost/BlogPost.astro";
 import { getCollection } from "astro:content";
 
-const allBlogPosts = await getCollection("traducciones");
-
+const allBlogPosts = await getCollection("blog");
 const posts = allBlogPosts;
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <Heading
-    title="Traducciones"
+    title="Blog"
     subtitle="Textos traducidos al español de libros, videos y charlas en inglés."
   />
   {
@@ -20,7 +19,7 @@ const posts = allBlogPosts;
       <BlogPost
         title={post.data.title}
         description={post.data.description}
-        url={`/traducciones/${post.slug}`}
+        url={`/blog/${post.slug}`}
       />
     ))
   }

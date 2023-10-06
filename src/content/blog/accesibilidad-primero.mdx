@@ -1,0 +1,16 @@
+---
+wip: true
+featured: false
+layout: "@/layouts/BlogWIP.astro"
+title: "A11y Primero."
+description: "Ventajas de iniciar por lo que es accesible."
+pubDate: "Oct 6 2023"
+heroImage: "https://res.cloudinary.com/srcouto/image/upload/v1624063155/Next-srcouto/de-la-industria-textil-a-la-luna/banner.png"
+---
+
+import { Image } from 'astro:assets';
+import Youtube from "@/components/Plugs/Youtube.jsx";
+import Audio from "@/components/Plugs/Audio.astro";
+import ImageLightbox from "@/components/Plugs/ImageLightbox.astro";
+import ImageCaption from "@/components/Plugs/Caption.astro";
+export const components = { Youtube, Audio,ImageLightbox, ImageCaption };

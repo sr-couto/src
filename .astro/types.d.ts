@@ -184,7 +184,23 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"traducciones": {
+		"blog": {
+"accesibilidad-primero.mdx": {
+	id: "accesibilidad-primero.mdx";
+  slug: "accesibilidad-primero";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+"factor-pedagogico-del-kitsch.mdx": {
+	id: "factor-pedagogico-del-kitsch.mdx";
+  slug: "factor-pedagogico-del-kitsch";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+};
+"traducciones": {
 "de-la-industria-textil-a-la-luna.mdx": {
 	id: "de-la-industria-textil-a-la-luna.mdx";
   slug: "de-la-industria-textil-a-la-luna";
