@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 export default function Youtube({ video, title, thumbnail }) {
-  const src = `https://www.youtube.com/embed/${video}`;
+  const src = `https://www.youtube-nocookie.com/embed/${video}`;
 
   const [isActive, setIsActive] = useState(false);
 
