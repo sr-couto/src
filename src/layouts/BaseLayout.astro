@@ -1,9 +1,8 @@
 ---
-import BaseHead from "@components/BaseHead/BaseHead.astro";
-import Offcanvas from "@components/Offcanvas/Offcanvas.vue";
-import Header from "@components/Header/Header.astro";
-import Footer from "@components/Footer/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@src/config";
+import BaseHead from "@/components/BaseHead/BaseHead.astro";
+import Header from "@/components/Header/Header.astro";
+import Footer from "@/components/Footer/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/config";
 ---
 
 <html lang="es">
@@ -11,12 +10,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "@src/config";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="dark">
-    <Offcanvas client:idle />
     <Header />
-    <main class="flex flex-col relative z-10 justify-center px-4 lg:px-0 pt-24 bg-white dark:bg-gray-900">
-      <div class="flex flex-col items-start justify-center w-full max-w-full mx-auto mb-16 lg:max-w-3xl">
+    <main
+      class="flex flex-col relative z-10 justify-center px-4 lg:px-0 pt-24 bg-white dark:bg-gray-900"
+    >
+      <section
+        class="flex flex-col items-start justify-center w-full max-w-full mx-auto mb-16 lg:max-w-3xl"
+      >
         <slot />
-      </div>
+      </section>
       <Footer />
     </main>
   </body>

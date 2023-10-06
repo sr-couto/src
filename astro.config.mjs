@@ -4,8 +4,9 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import vue from "@astrojs/vue";
 import { defineConfig } from "astro/config";
-import { remarkReadingTime } from "./lib/remark-reading-time.mjs";
+import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 
+// https://astro.build/config
 export default defineConfig({
   site: "https://srcouto.netlify.app",
   integrations: [

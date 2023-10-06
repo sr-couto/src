@@ -1,7 +1,9 @@
 ---
-import BlogPost from "@components/BlogPost/BlogPost.astro";
-import SubHeading from "@components/Plugs/SubHeading.jsx";
-import Layout from "@layouts/BaseLayout.astro";
+import BlogPost from "@/components/BlogPost/BlogPost.astro";
+import SubHeading from "@/components/Plugs/SubHeading.astro";
+import Layout from "@/layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+
 export interface Props {
   content: {
     title: string;
@@ -15,40 +17,66 @@ const {
   content: { title, description, pubDate, minutesRead },
 } = Astro.props;
 
-const posts = (await Astro.glob("../pages/traducciones/*.{md,mdx}")).sort(
-  (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-);
+const allBlogPosts = await getCollection("traducciones");
 
-const myFeaturedPost = posts.filter((post) => post.frontmatter.featured);
+const posts = allBlogPosts;
+
+const myFeaturedPost = posts.filter((post) => post.data.featured);
 ---
 
 <Layout>
-  <div class="lg:px-12 max-w-3xl w-full mx-auto">
-    <h1 class="mb-4 font-sans text-3xl text-gray-900 dark:text-white font-medium md:text-4xl">{title}</h1>
-    <h2 class="relative block mb-6 font-sans text-xl md:text-xl text-gray-900 dark:text-white">{description}</h2>
-    <hr class="w-full my-1 max-w-2xl mx-auto border-t border-gray-300 border-dotted dark:border-gray-600" />
-  </div>
-  <div class="flex items-center w-full max-w-2xl mx-auto my-3 justify-start text-gray-800 dark:text-gray-300">
-    <div class="flex items-center">
-      {pubDate && <time class="capitalize font-caption text-base ">{pubDate}</time>}
+  <article>
+    <div class="lg:px-12 max-w-3xl w-full mx-auto">
+      <h1
+        class="mb-4 font-sans text-3xl text-gray-900 dark:text-white font-medium md:text-4xl"
+      >
+        {title}
+      </h1>
+      <h2
+        class="relative block mb-6 font-sans text-xl md:text-xl text-gray-900 dark:text-white"
+      >
+        {description}
+      </h2>
+      <hr
+        class="w-full my-1 max-w-2xl mx-auto border-t border-gray-300 border-dotted dark:border-gray-600"
+      />
     </div>
-    <span class="px-4">•</span>
-    <div class="text-base font-caption min-w-32 md:mt-0">
-      {minutesRead} de lectura
+    <div
+      class="flex items-center w-full max-w-2xl mx-auto my-3 justify-start text-gray-800 dark:text-gray-300"
+    >
+      <div class="flex items-center">
+        {
+          pubDate && (
+            <time class="capitalize font-caption text-base ">{pubDate}</time>
+          )
+        }
+      </div>
+      <span class="px-4">•</span>
+      <div class="text-base font-caption min-w-32 md:mt-0">
+        {minutesRead} de lectura
+      </div>
     </div>
-  </div>
-  <hr class="w-full my-1 max-w-2xl mx-auto border-t border-gray-300 border-dotted dark:border-gray-600" />
-  <article class="w-full pb-12 font-serif prose prose-lg lg:prose-xl hyphens dark:prose-invert max-w-none">
-    <slot />
+    <hr
+      class="w-full my-1 max-w-2xl mx-auto border-t border-gray-300 border-dotted dark:border-gray-600"
+    />
+    <div
+      class="w-full pb-12 font-serif prose prose-lg lg:prose-xl hyphens dark:prose-invert max-w-none"
+    >
+      <slot />
+    </div>
   </article>
-  <div class="max-w-2xl w-full mx-auto">
-    <SubHeading client:visible title="Más traducciones" link="true" />
+  <aside class="max-w-2xl w-full mx-auto">
+    <SubHeading title="Más traducciones" link />
     {
       myFeaturedPost.map((post) => (
-        <BlogPost title={post.frontmatter.title} description={post.frontmatter.description} url={post.url} />
+        <BlogPost
+          title={post.data.title}
+          description={post.data.description}
+          url={`/traducciones/${post.slug}`}
+        />
       ))
     }
-  </div>
+  </aside>
 </Layout>
 
 <style is:global>

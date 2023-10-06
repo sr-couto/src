@@ -6,8 +6,9 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "strictNullChecks": true,
     "allowJs": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "types": [
@@ -15,25 +16,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ],
-      "@src/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"],
     },
-    "jsxImportSource": "solid-js"
+    "jsxImportSource": "react"
   }
 }

@@ -1,6 +1,6 @@
 ---
 featured: false
-layout: "@layouts/Blog.astro"
+layout: "@/layouts/Blog.astro"
 title: "De la industria textil a la Luna"
 description: "La ciudad de Huntsville Alabama."
 pubDate: "Mar 01 2021"
@@ -8,10 +8,10 @@ heroImage: "https://res.cloudinary.com/srcouto/image/upload/v1624063155/Next-src
 ---
 
 import { Image } from 'astro:assets';
-import Youtube from "@components/Plugs/Youtube.jsx";
-import Audio from "@components/Plugs/Audio.astro";
-import ImageLightbox from "@components/Plugs/ImageLightbox.astro";
-import ImageCaption from "@components/Plugs/ImageCaption.astro";
+import Youtube from "@/components/Plugs/Youtube.jsx";
+import Audio from "@/components/Plugs/Audio.astro";
+import ImageLightbox from "@/components/Plugs/ImageLightbox.astro";
+import ImageCaption from "@/components/Plugs/ImageCaption.astro";
 export const components = { Youtube, Audio,ImageLightbox, ImageCaption };
 
 Contenido extraído y traducido de <a href="https://uxdesign.cc/how-the-cotton-mill-put-a-man-on-the-moon-3ddf7e7f6281" class="external-link" target="_blank" rel="noopener noreferrer">uxdesign.cc</a>
