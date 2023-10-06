@@ -8,6 +8,7 @@
 
 .Title {
   @apply inline-block pr-4 mb-2 text-2xl font-medium duration-300 md:text-xl text-blue-400 hover:underline underline-offset-8;
+  text-wrap: balance
 }
 
 :global(.dark) .Title {
@@ -16,6 +17,7 @@
 
 .Title span {
   @apply text-gray-900;
+  
 }
 
 :global(.dark) .Title span {
@@ -29,6 +31,7 @@
 
 .Description {
   @apply pb-2 pr-4 text-base md:text-lg font-normal;
+  text-wrap: balance
 }
 
 :global(.dark) .Description {

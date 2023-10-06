@@ -13,9 +13,6 @@ import { SITE_TITLE } from "@/config";
       <HeaderLink href="/traducciones" aria-label="Ir a página de traducciones.">Traducciones</HeaderLink>
       <HeaderLink href="/contacto" aria-label="Ir a página de contacto.">Contacto</HeaderLink>
     </nav>
-    <div class="sm:hidden">
-      <DropdownMenuDemo client:visible />
-    </div>
   </header>
   <div class="bien-glass"></div>
   <div class="bien-glass-edge"></div>
@@ -31,7 +28,7 @@ import { SITE_TITLE } from "@/config";
   }
 
   .header nav {
-    @apply gap-6 font-mono uppercase hidden sm:flex items-center mr-5 w-full justify-end;
+    @apply gap-6 text-xs md:text-base font-mono uppercase flex items-center mr-5 w-full justify-end;
   }
 
   .nav {
