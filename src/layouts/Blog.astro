@@ -1,6 +1,7 @@
 ---
 import BlogPost from "@/components/BlogPost/BlogPost.astro";
 import SubHeading from "@/components/Plugs/SubHeading.astro";
+import { Separator } from "@/components/ui/separator";
 import Layout from "@/layouts/BaseLayout.astro";
 import { getCollection, getEntry } from "astro:content";
 
@@ -10,11 +11,13 @@ export interface Props {
     description: string;
     pubDate?: string;
     minutesRead?: string;
+    sourceUrl?: string;
+    sourceText?: string;
   };
 }
 
 const {
-  content: { title, description, pubDate, minutesRead },
+  content: { title, description, pubDate, minutesRead, sourceUrl, sourceText },
 } = Astro.props;
 
 const allBlogPosts = await getCollection("traducciones");
@@ -27,41 +30,41 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
 <Layout>
   <article>
     <div class="sm:px-12 sm:max-w-3xl w-full mx-auto">
-      <h1
-        class="mb-4 font-sans text-3xl text-gray-900 dark:text-white font-medium md:text-4xl"
-      >
+      <h1 class="mb-4 font-sans text-3xl text-white font-medium md:text-4xl">
         {title}
       </h1>
-      <h2
-        class="relative block mb-6 font-sans text-xl md:text-xl text-gray-900 dark:text-white"
-      >
+      <h2 class="relative block mb-6 font-sans text-xl md:text-xl text-white">
         {description}
       </h2>
-    </div>
-    <hr
-      class="w-full my-1 sm:px-12 sm:max-w-3xl mx-auto border-t border-gray-300 border-dotted dark:border-gray-600"
-    />
-    <div
-      class="flex items-center w-full sm:px-12 sm:max-w-3xl mx-auto my-3 justify-start text-gray-800 dark:text-gray-300"
-    >
-      <div class="flex items-center">
-        {
-          pubDate && (
-            <time class="capitalize font-caption text-base ">{pubDate}</time>
-          )
-        }
+      <Separator />
+      <div
+        class="flex items-center w-full mx-auto my-3 justify-start text-gray-300"
+      >
+        <div class="flex items-center">
+          {
+            pubDate && (
+              <time class="capitalize font-caption text-base ">{pubDate}</time>
+            )
+          }
+        </div>
+        <span class="px-4">•</span>
+        <div class="text-base font-caption min-w-32 md:mt-0">
+          {minutesRead} de lectura
+        </div>
       </div>
-      <span class="px-4">•</span>
-      <div class="text-base font-caption min-w-32 md:mt-0">
-        {minutesRead} de lectura
-      </div>
+      <Separator />
+      {
+        sourceUrl && (
+          <a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="mt-2 w-full block text-left py-3 underline">
+            {sourceText}
+          </a>
+        )
+      }
     </div>
-    <hr
-      class="w-full my-1 sm:max-w-3xl sm:px-12 mx-auto border-t border-gray-300 border-dotted dark:border-gray-600"
-    />
     <div
-      class="w-full pb-12  font-serif prose prose-lg sm:prose-xl hyphens dark:prose-invert max-w-none"
+      class="w-full pb-12 font-serif prose prose-lg sm:prose-xl hyphens dark:prose-invert max-w-none"
     >
+      
       <slot />
     </div>
   </article>

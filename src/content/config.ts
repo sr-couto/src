@@ -10,7 +10,9 @@ const translationCollection = defineCollection({
     featured: z.boolean().optional(),
     layout: z.string().optional(),
     pubDate: z.string().optional(),
-    heroImage: z.string().optional()
+    heroImage: z.string().optional(),
+    source: z.string().optional(),
+    sourceText: z.string().optional(),
   }),
 });
 
