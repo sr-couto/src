@@ -9,7 +9,7 @@ const posts = await getCollection("extractos");
 ---
 
 <Layout bodyClass="extractos">
-  <div class="w-full h-screen overflow-y-auto snap-y snap-mandatory">
+  <div class="w-full h-screen px-4 overflow-y-auto snap-y snap-mandatory">
     <div
       class="pt-24 flex justify-center mx-auto snap-center items-start w-full flex-col max-w-3xl sm:px-12"
     >
@@ -19,7 +19,7 @@ const posts = await getCollection("extractos");
       {
         posts.map((post) => (
           <div class="min-h-screen flex justify-center items-center w-full  ">
-            <article class="font-serif bg-primary-foreground/50 backdrop-blur-sm p-12 rounded-md overflow-hidden shadow relative">
+            <article class="font-serif bg-primary-foreground/50 backdrop-blur-sm p-8 sm:p-12 rounded-md overflow-hidden shadow relative">
               <div class="relative grid gap-1 z-10">
                 <h2 class="text-2xl font-bold">{post.data.title}</h2>
                 <p>
@@ -41,7 +41,7 @@ const posts = await getCollection("extractos");
 <style scoped>
   section {
     @apply w-full max-w-2xl mx-auto;
-    @apply min-h-[50vh] flex justify-center snap-center items-center w-full;
+    @apply min-h-screen flex justify-center snap-center items-center w-full;
   }
 
   body.extractos {
