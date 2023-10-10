@@ -185,19 +185,28 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"accesibilidad-primero.mdx": {
-	id: "accesibilidad-primero.mdx";
-  slug: "accesibilidad-primero";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
 "factor-pedagogico-del-kitsch.mdx": {
 	id: "factor-pedagogico-del-kitsch.mdx";
   slug: "factor-pedagogico-del-kitsch";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+"la-manifestacion-irrepetible-de-una-lejania.mdx": {
+	id: "la-manifestacion-irrepetible-de-una-lejania.mdx";
+  slug: "la-manifestacion-irrepetible-de-una-lejania";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+};
+"extractos": {
+"ada-lovelace.mdx": {
+	id: "ada-lovelace.mdx";
+  slug: "ada-lovelace";
+  body: string;
+  collection: "extractos";
+  data: any
 } & { render(): Render[".mdx"] };
 };
 "traducciones": {
@@ -229,13 +238,6 @@ declare module 'astro:content' {
   collection: "traducciones";
   data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
-"extracto-sobre-inteligencia-artificial.mdx": {
-	id: "extracto-sobre-inteligencia-artificial.mdx";
-  slug: "extracto-sobre-inteligencia-artificial";
-  body: string;
-  collection: "traducciones";
-  data: InferEntrySchema<"traducciones">
-} & { render(): Render[".mdx"] };
 "la-autentificacion-de-tres-factores.mdx": {
 	id: "la-autentificacion-de-tres-factores.mdx";
   slug: "la-autentificacion-de-tres-factores";
@@ -253,6 +255,13 @@ declare module 'astro:content' {
 "la-psicologia-del-diseno.mdx": {
 	id: "la-psicologia-del-diseno.mdx";
   slug: "la-psicologia-del-diseno";
+  body: string;
+  collection: "traducciones";
+  data: InferEntrySchema<"traducciones">
+} & { render(): Render[".mdx"] };
+"sobre-inteligencia-artificial.mdx": {
+	id: "sobre-inteligencia-artificial.mdx";
+  slug: "sobre-inteligencia-artificial";
   body: string;
   collection: "traducciones";
   data: InferEntrySchema<"traducciones">

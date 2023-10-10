@@ -1,5 +1,5 @@
 ---
-const { title, link } = Astro.props;
+const { title, link, ariaLabel } = Astro.props;
 ---
 
 <div class="Container">
@@ -10,7 +10,7 @@ const { title, link } = Astro.props;
     link && (
       <a
         href="/traducciones"
-        aria-label="Ver todas las traducciones."
+        aria-label={ariaLabel}
         class="flex items-center justify-between w-32 cursor-pointer text-xs uppercase duration-300 dark:text-white group"
       >
         Ver más

@@ -15,6 +15,7 @@ const posts = allBlogPosts;
     title="Traducciones"
     subtitle="Textos traducidos al español de libros, videos y charlas en inglés."
   />
+  <div class="grid gap-2">
   {
     posts.map((post) => (
       <BlogPost
@@ -24,4 +25,5 @@ const posts = allBlogPosts;
       />
     ))
   }
+  </div>
 </Layout>

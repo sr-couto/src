@@ -85,18 +85,7 @@
 
   html {
     min-width: 360px;
-    scroll-behavior: smooth;
+    @apply scroll-smooth motion-reduce:scroll-auto
   }
 
-  *::-webkit-scrollbar {
-    @apply w-3;
-  }
-
-  *::-webkit-scrollbar-track {
-    @apply bg-secondary dark:bg-primary;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    @apply dark:bg-secondary rounded-full border-secondary border bg-primary;
-  }
 }

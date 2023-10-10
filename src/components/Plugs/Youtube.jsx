@@ -7,20 +7,19 @@ export default function Youtube({ video, title, thumbnail }) {
 
   const handleClick = useCallback(() => {
     setIsActive((current) => !current);
-    console.log("active");
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative max-w-4xl mx-auto">
       <div className={`${isActive ? "block" : "hidden"} youtube-container aspect-w-16 aspect-h-9 relative`}>
         <iframe width="100%" height="450" src={src} allow="autoplay; encrypted-media" allowFullScreen title={title} />
       </div>
-      <div
-        className={`${isActive ? "hidden " : "block"} duration-300 bg-black youtube-container aspect-w-16 aspect-h-9 group`}
+      <button
+        className={`${isActive ? "hidden " : "block"} duration-300 bg-black youtube-container aspect-w-16 aspect-h-9 w-full group`}
         onClick={handleClick}
       >
         <span className="absolute top-0 left-0 right-0 z-50 p-3 font-sans text-lg font-medium text-left text-white duration-300 group-hover:opacity-100 opacity-0">
-          {title}
+          Click para activar el reproductor.
         </span>
         <div className="absolute inset-0 z-50 cursor-pointer flex justify-center items-center ">
           <svg
@@ -43,7 +42,7 @@ export default function Youtube({ video, title, thumbnail }) {
           height="720"
           className="pointer-events-none duration-300 opacity-80 group-hover:opacity-30"
         />
-      </div>
+      </button>
     </div>
   );
 }

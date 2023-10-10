@@ -20,16 +20,14 @@ const {
   content: { title, description, pubDate, minutesRead, sourceUrl, sourceText },
 } = Astro.props;
 
-const allBlogPosts = await getCollection("traducciones");
-
-const posts = allBlogPosts;
+const posts = await getCollection("traducciones");
 
 const myFeaturedPost = posts.filter((post) => post.data.featured);
 ---
 
 <Layout>
   <article>
-    <div class="sm:px-12 sm:max-w-3xl w-full mx-auto">
+    <div class="sm:px-12 pt-24 sm:max-w-3xl w-full mx-auto">
       <h1 class="mb-4 font-sans text-3xl text-white font-medium md:text-4xl">
         {title}
       </h1>
@@ -69,7 +67,7 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
     </div>
   </article>
   <aside class="max-w-3xl sm:px-12 w-full mx-auto">
-    <SubHeading title="Más traducciones" link />
+    <SubHeading title="Más traducciones" ariaLabel="Ver más contenido de traducciones" link />
     {
       myFeaturedPost.map((post) => (
         <BlogPost
@@ -115,7 +113,7 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
   }
 
   .prose blockquote {
-    @apply max-w-3xl pr-12 mr-auto text-lg lg:text-2xl md:pr-24 border-l-0;
+    @apply max-w-3xl pr-12 mx-auto text-lg lg:text-2xl md:pr-24 border-l-0;
     @apply transform translate-x-4 hover:opacity-80 duration-300;
   }
   .prose.hyphens blockquote p {
