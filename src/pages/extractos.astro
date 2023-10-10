@@ -9,7 +9,7 @@ const posts = await getCollection("extractos");
 ---
 
 <Layout bodyClass="extractos">
-  <ScrollSnap client:load>
+  <div class="w-full h-screen overflow-y-auto snap-y snap-mandatory">
     <div
       class="pt-24 flex justify-center mx-auto snap-center items-start w-full flex-col max-w-3xl sm:px-12"
     >
@@ -19,17 +19,13 @@ const posts = await getCollection("extractos");
       {
         posts.map((post) => (
           <div class="min-h-screen flex justify-center items-center w-full  ">
-            <article class="font-serif bg-primary-foreground/50 p-12 rounded-md overflow-hidden shadow relative">
+            <article class="font-serif bg-primary-foreground/50 backdrop-blur-sm p-12 rounded-md overflow-hidden shadow relative">
               <div class="relative grid gap-1 z-10">
                 <h2 class="text-2xl font-bold">{post.data.title}</h2>
                 <p>
                   <i>— {post.data.description} —</i>
                 </p>
                 <q>{post.body}</q>
-              </div>
-              <div class="absolute inset-0 z-0">
-                <div class="bien-glass" />
-                <div class="bien-glass-edge" />
               </div>
             </article>
           </div>
@@ -39,7 +35,7 @@ const posts = await getCollection("extractos");
     <div class="snap-start">
       <Footer />
     </div>
-  </ScrollSnap>
+  </div>
 </Layout>
 
 <style scoped>
