@@ -1,5 +1,6 @@
 ---
 import BlogPost from "@/components/BlogPost/BlogPost.astro";
+import Footer from "@/components/Footer/Footer.astro";
 import SubHeading from "@/components/Plugs/SubHeading.astro";
 import { Separator } from "@/components/ui/separator";
 import Layout from "@/layouts/BaseLayout.astro";
@@ -60,7 +61,7 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
       }
     </div>
     <div
-      class="w-full pb-12 font-serif prose prose-lg sm:prose-xl hyphens dark:prose-invert max-w-none"
+      class="w-full pb-12 font-serif prose prose-lg sm:prose-xl prose-h3:text-xl hyphens dark:prose-invert max-w-none"
     >
       
       <slot />
@@ -78,6 +79,8 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
       ))
     }
   </aside>
+
+  <Footer/>
 </Layout>
 
 <style is:global>
@@ -118,6 +121,7 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
   }
   .prose.hyphens blockquote p {
     hyphens: none;
+    text-wrap: balance
   }
   .prose blockquote {
     @apply font-serif;

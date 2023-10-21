@@ -190,14 +190,14 @@ declare module 'astro:content' {
   slug: "factor-pedagogico-del-kitsch";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".mdx"] };
 "la-manifestacion-irrepetible-de-una-lejania.mdx": {
 	id: "la-manifestacion-irrepetible-de-una-lejania.mdx";
   slug: "la-manifestacion-irrepetible-de-una-lejania";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".mdx"] };
 };
 "extractos": {
@@ -215,56 +215,63 @@ declare module 'astro:content' {
   slug: "de-la-industria-textil-a-la-luna";
   body: string;
   collection: "traducciones";
-  data: InferEntrySchema<"traducciones">
+  data: any
 } & { render(): Render[".mdx"] };
 "el-ancho-de-banda-de-la-conciencia.mdx": {
 	id: "el-ancho-de-banda-de-la-conciencia.mdx";
   slug: "el-ancho-de-banda-de-la-conciencia";
   body: string;
   collection: "traducciones";
-  data: InferEntrySchema<"traducciones">
+  data: any
 } & { render(): Render[".mdx"] };
 "el-diseno-centrado-en-las-personas.mdx": {
 	id: "el-diseno-centrado-en-las-personas.mdx";
   slug: "el-diseno-centrado-en-las-personas";
   body: string;
   collection: "traducciones";
-  data: InferEntrySchema<"traducciones">
+  data: any
 } & { render(): Render[".mdx"] };
 "el-problema-con-el-diseno-de-banderas.mdx": {
 	id: "el-problema-con-el-diseno-de-banderas.mdx";
   slug: "el-problema-con-el-diseno-de-banderas";
   body: string;
   collection: "traducciones";
-  data: InferEntrySchema<"traducciones">
+  data: any
 } & { render(): Render[".mdx"] };
 "la-autentificacion-de-tres-factores.mdx": {
 	id: "la-autentificacion-de-tres-factores.mdx";
   slug: "la-autentificacion-de-tres-factores";
   body: string;
   collection: "traducciones";
-  data: InferEntrySchema<"traducciones">
+  data: any
 } & { render(): Render[".mdx"] };
 "la-comunicacion-mas-corta-de-la-historia.mdx": {
 	id: "la-comunicacion-mas-corta-de-la-historia.mdx";
   slug: "la-comunicacion-mas-corta-de-la-historia";
   body: string;
   collection: "traducciones";
-  data: InferEntrySchema<"traducciones">
+  data: any
 } & { render(): Render[".mdx"] };
 "la-psicologia-del-diseno.mdx": {
 	id: "la-psicologia-del-diseno.mdx";
   slug: "la-psicologia-del-diseno";
   body: string;
   collection: "traducciones";
-  data: InferEntrySchema<"traducciones">
+  data: any
+} & { render(): Render[".mdx"] };
+"licencia.mdx": {
+	id: "licencia.mdx";
+  slug: "licencia";
+  body: string;
+  collection: "traducciones";
+  data: any
 } & { render(): Render[".mdx"] };
 "sobre-inteligencia-artificial.mdx": {
 	id: "sobre-inteligencia-artificial.mdx";
   slug: "sobre-inteligencia-artificial";
   body: string;
   collection: "traducciones";
-  data: InferEntrySchema<"traducciones">
+  data: any
 } & { render(): Render[".mdx"] };
 };
 
@@ -276,5 +283,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	type ContentConfig = never;
 }
