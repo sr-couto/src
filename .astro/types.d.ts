@@ -19,8 +19,6 @@ declare module 'astro:content' {
 }
 
 declare module 'astro:content' {
-	export { z } from 'astro/zod';
-
 	type Flatten<T> = T extends { [K: string]: infer U } ? U : never;
 
 	export type CollectionKey = keyof AnyEntryMap;
@@ -28,53 +26,6 @@ declare module 'astro:content' {
 
 	export type ContentCollectionKey = keyof ContentEntryMap;
 	export type DataCollectionKey = keyof DataEntryMap;
-
-	// This needs to be in sync with ImageMetadata
-	export type ImageFunction = () => import('astro/zod').ZodObject<{
-		src: import('astro/zod').ZodString;
-		width: import('astro/zod').ZodNumber;
-		height: import('astro/zod').ZodNumber;
-		format: import('astro/zod').ZodUnion<
-			[
-				import('astro/zod').ZodLiteral<'png'>,
-				import('astro/zod').ZodLiteral<'jpg'>,
-				import('astro/zod').ZodLiteral<'jpeg'>,
-				import('astro/zod').ZodLiteral<'tiff'>,
-				import('astro/zod').ZodLiteral<'webp'>,
-				import('astro/zod').ZodLiteral<'gif'>,
-				import('astro/zod').ZodLiteral<'svg'>,
-				import('astro/zod').ZodLiteral<'avif'>,
-			]
-		>;
-	}>;
-
-	type BaseSchemaWithoutEffects =
-		| import('astro/zod').AnyZodObject
-		| import('astro/zod').ZodUnion<[BaseSchemaWithoutEffects, ...BaseSchemaWithoutEffects[]]>
-		| import('astro/zod').ZodDiscriminatedUnion<string, import('astro/zod').AnyZodObject[]>
-		| import('astro/zod').ZodIntersection<BaseSchemaWithoutEffects, BaseSchemaWithoutEffects>;
-
-	type BaseSchema =
-		| BaseSchemaWithoutEffects
-		| import('astro/zod').ZodEffects<BaseSchemaWithoutEffects>;
-
-	export type SchemaContext = { image: ImageFunction };
-
-	type DataCollectionConfig<S extends BaseSchema> = {
-		type: 'data';
-		schema?: S | ((context: SchemaContext) => S);
-	};
-
-	type ContentCollectionConfig<S extends BaseSchema> = {
-		type?: 'content';
-		schema?: S | ((context: SchemaContext) => S);
-	};
-
-	type CollectionConfig<S> = ContentCollectionConfig<S> | DataCollectionConfig<S>;
-
-	export function defineCollection<S extends BaseSchema>(
-		input: CollectionConfig<S>
-	): CollectionConfig<S>;
 
 	type AllValuesOf<T> = T extends any ? T[keyof T] : never;
 	type ValidContentEntrySlug<C extends keyof ContentEntryMap> = AllValuesOf<
@@ -165,11 +116,11 @@ declare module 'astro:content' {
 			? {
 					collection: C;
 					slug: ValidContentEntrySlug<C>;
-			  }
+				}
 			: {
 					collection: C;
 					id: keyof DataEntryMap[C];
-			  }
+				}
 	>;
 	// Allow generic `string` to avoid excessive type errors in the config
 	// if `dev` is not running to update as you edit.
@@ -190,14 +141,14 @@ declare module 'astro:content' {
   slug: "factor-pedagogico-del-kitsch";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "la-manifestacion-irrepetible-de-una-lejania.mdx": {
 	id: "la-manifestacion-irrepetible-de-una-lejania.mdx";
   slug: "la-manifestacion-irrepetible-de-una-lejania";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 };
 "extractos": {
@@ -215,63 +166,63 @@ declare module 'astro:content' {
   slug: "de-la-industria-textil-a-la-luna";
   body: string;
   collection: "traducciones";
-  data: any
+  data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
 "el-ancho-de-banda-de-la-conciencia.mdx": {
 	id: "el-ancho-de-banda-de-la-conciencia.mdx";
   slug: "el-ancho-de-banda-de-la-conciencia";
   body: string;
   collection: "traducciones";
-  data: any
+  data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
 "el-diseno-centrado-en-las-personas.mdx": {
 	id: "el-diseno-centrado-en-las-personas.mdx";
   slug: "el-diseno-centrado-en-las-personas";
   body: string;
   collection: "traducciones";
-  data: any
+  data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
 "el-problema-con-el-diseno-de-banderas.mdx": {
 	id: "el-problema-con-el-diseno-de-banderas.mdx";
   slug: "el-problema-con-el-diseno-de-banderas";
   body: string;
   collection: "traducciones";
-  data: any
+  data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
 "la-autentificacion-de-tres-factores.mdx": {
 	id: "la-autentificacion-de-tres-factores.mdx";
   slug: "la-autentificacion-de-tres-factores";
   body: string;
   collection: "traducciones";
-  data: any
+  data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
 "la-comunicacion-mas-corta-de-la-historia.mdx": {
 	id: "la-comunicacion-mas-corta-de-la-historia.mdx";
   slug: "la-comunicacion-mas-corta-de-la-historia";
   body: string;
   collection: "traducciones";
-  data: any
+  data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
 "la-psicologia-del-diseno.mdx": {
 	id: "la-psicologia-del-diseno.mdx";
   slug: "la-psicologia-del-diseno";
   body: string;
   collection: "traducciones";
-  data: any
+  data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
 "licencia.mdx": {
 	id: "licencia.mdx";
   slug: "licencia";
   body: string;
   collection: "traducciones";
-  data: any
+  data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
 "sobre-inteligencia-artificial.mdx": {
 	id: "sobre-inteligencia-artificial.mdx";
   slug: "sobre-inteligencia-artificial";
   body: string;
   collection: "traducciones";
-  data: any
+  data: InferEntrySchema<"traducciones">
 } & { render(): Render[".mdx"] };
 };
 
@@ -283,5 +234,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = never;
+	export type ContentConfig = typeof import("../src/content/config.js");
 }
