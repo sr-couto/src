@@ -8,7 +8,7 @@ const Title = ({ title }) => {
     <>
       <div className="mt-3">
         <div className="border-b-2 border-dotted border-zinc-300 print:border-zinc-800">
-          <h2 className="relative inline-block py-2 text-xl font-black uppercase border-b-2 border-zinc-500 print:text-base dark:border-white print:border-zinc-800 top-0.5">
+          <h2 className="relative inline-block py-2 text-xl font-black uppercase border-b-2 border-zinc-500 print:text-base dark:border-white print:!border-zinc-800 top-0.5">
             {title}
           </h2>
         </div>
@@ -20,7 +20,7 @@ const Title = ({ title }) => {
 const BodyCvEs = () => {
   return (
     <>
-      <div className="grid w-full max-w-2xl min-h-screen grid-cols-1 mx-auto mt-3 text-sm dark:text-white md:gap-2 print:max-w-full print:grid-cols-5 md:grid-cols-5 print:min-h-full print:text-xs">
+      <div className="grid w-full max-w-2xl min-h-screen grid-cols-1 mx-auto mt-3 text-sm dark:text-white print:!text-gray-900 md:gap-2 print:max-w-full print:grid-cols-5 md:grid-cols-5 print:min-h-full print:text-xs">
         <div className="relative flex-initial col-span-2 md:pr-8 print:pr-8 ">
           <div className="mt-3">
             <Title title="Conocimientos" />
@@ -34,7 +34,7 @@ const BodyCvEs = () => {
               <TechItem title="vsCode" percentage="100%" />
               <TechItem title="inDesign" percentage="50%" />
               <TechItem title="figma" percentage="60%" />
-              <TechItem title="blender" percentage="33%" />
+              <TechItem title="blender" percentage="60%" />
             </Tech>
             <Tech description="Enfoque de diseño accesible y adaptado a cualquier dispositivo." />
             <Tech description="Compatibilidad trabajando con todos los navegadores." />
@@ -55,20 +55,21 @@ const BodyCvEs = () => {
               <TechItem title="sanityCMS" percentage="70%" />
               <TechItem title="jekyll" percentage="50%" />
               <TechItem title="netlifyCms" percentage="50%" />
-              <TechItem title="django" percentage="10%" />
+              <TechItem title="django" percentage="40%" />
             </Tech>
             <Tech description="Experiencia trabajando con diferentes frameworks">
+              <TechItem title="astro" percentage="70%" />
+              <TechItem title="vue.js" percentage="70%" />
+              <TechItem title="next.js" percentage="50%" />
               <TechItem title="gatsby.js" percentage="70%" />
-              <TechItem title="next.js" percentage="70%" />
-              <TechItem title="ember.js" percentage="60%" />
-              <TechItem title="vue.js" percentage="50%" />
+              <TechItem title="ember.js" percentage="40%" />
             </Tech>
             <Tech description="Puesta en producción y optimización">
               <TechItem title="netlify" percentage="60%" />
               <TechItem title="gh-pages" percentage="70%" />
               <TechItem title="vercel" percentage="60%" />
               <TechItem title="lighthouse" percentage="80%" />
-              <TechItem title="purgeCss" percentage="80%" />
+              <TechItem title="cloudinary" percentage="80%" />
             </Tech>
           </div>
         </div>

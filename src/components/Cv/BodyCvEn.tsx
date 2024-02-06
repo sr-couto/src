@@ -1,14 +1,14 @@
-import { Tech } from "./Tech"
-import { TechItem } from "./TechItem"
-import { WorkExperience } from "./WorkExperience"
-import { EducationItem } from "./EducationItem"
+import { Tech } from "./Tech";
+import { TechItem } from "./TechItem";
+import { WorkExperience } from "./WorkExperience";
+import { EducationItem } from "./EducationItem";
 
 const Title = ({ title }) => {
   return (
     <>
       <div className="mt-3">
         <div className="border-b-2 border-dotted border-zinc-300 print:border-zinc-800">
-          <h2 className="relative inline-block py-2 text-xl font-black uppercase border-b-2 border-zinc-500 print:text-base dark:border-white print:border-zinc-800 top-0.5">
+          <h2 className="relative inline-block py-2 text-xl font-black uppercase border-b-2 border-zinc-500 print:text-base dark:border-white print:!border-zinc-800 top-0.5">
             {title}
           </h2>
         </div>
@@ -20,7 +20,7 @@ const Title = ({ title }) => {
 const BodyCv = () => {
   return (
     <>
-      <div className="grid w-full max-w-2xl min-h-screen grid-cols-1 mx-auto mt-3 text-sm print:mt-0 dark:text-white md:gap-2 print:max-w-full print:grid-cols-5 md:grid-cols-5 print:min-h-full print:text-xs">
+      <div className="grid w-full max-w-2xl min-h-screen grid-cols-1 mx-auto mt-3 text-sm print:mt-0 print:!text-gray-900 dark:text-white md:gap-2 print:max-w-full print:grid-cols-5 md:grid-cols-5 print:min-h-full print:text-xs">
         <div className="relative flex-initial col-span-2 md:pr-6 print:pr-12 ">
           <div className="mt-3">
             <Title title="knowledge" />
@@ -34,7 +34,7 @@ const BodyCv = () => {
               <TechItem title="vsCode" percentage="100%" />
               <TechItem title="inDesign" percentage="50%" />
               <TechItem title="figma" percentage="60%" />
-              <TechItem title="blender" percentage="33%" />
+              <TechItem title="blender" percentage="60%" />
             </Tech>
             <Tech description="Accessible design approach adapted to any device." />
             <Tech description="Compatibility working with web standards." />
@@ -55,20 +55,21 @@ const BodyCv = () => {
               <TechItem title="sanityCMS" percentage="70%" />
               <TechItem title="jekyll" percentage="50%" />
               <TechItem title="netlifyCms" percentage="50%" />
-              <TechItem title="django" percentage="10%" />
+              <TechItem title="django" percentage="40%" />
             </Tech>
             <Tech description="Experience working with a variety of development frameworks.">
+              <TechItem title="astro" percentage="70%" />
+              <TechItem title="vue.js" percentage="70%" />
+              <TechItem title="next.js" percentage="50%" />
               <TechItem title="gatsby.js" percentage="70%" />
-              <TechItem title="next.js" percentage="70%" />
-              <TechItem title="ember.js" percentage="60%" />
-              <TechItem title="vue.js" percentage="50%" />
+              <TechItem title="ember.js" percentage="40%" />
             </Tech>
             <Tech description="Deploying and optimization.">
               <TechItem title="netlify" percentage="60%" />
               <TechItem title="gh-pages" percentage="70%" />
               <TechItem title="vercel" percentage="60%" />
               <TechItem title="lighthouse" percentage="80%" />
-              <TechItem title="purgeCss" percentage="80%" />
+              <TechItem title="cloudinary" percentage="80%" />
             </Tech>
           </div>
         </div>
@@ -112,8 +113,8 @@ const BodyCv = () => {
             sector="private sector"
             time="Feb. 2011 ‒ Mar. 2013"
           >
-            Newsletter design / Company websites. Server Technical support
-            / Basic management of hosting servers.
+            Newsletter design / Company websites. Server Technical support /
+            Basic management of hosting servers.
           </WorkExperience>
           <Title title="Education" />
           <EducationItem
@@ -123,11 +124,7 @@ const BodyCv = () => {
           >
             Graphic Design student (UBA)
           </EducationItem>
-          <EducationItem
-            description="Orthotypography course."
-            time="2013"
-            line
-          >
+          <EducationItem description="Orthotypography course." time="2013" line>
             Tipitos Argentinos
             <i className="ml-1 text-sm italic font-normal normal-case opacity-80 print:text-xs">
               by Aldo de Losa
