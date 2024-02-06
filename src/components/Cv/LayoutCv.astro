@@ -2,6 +2,7 @@
 import BaseHead from "@/components/BaseHead/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/config";
 import ThemeIcon from "./themeIcon.astro";
+import Fonts from "@/layouts/Fonts.astro";
 
 const { english } = Astro.props;
 ---
@@ -9,6 +10,7 @@ const { english } = Astro.props;
 <html lang="es">
   <head>
     <meta name="robots" content="noindex, nofollow" />
+    <Fonts />
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
