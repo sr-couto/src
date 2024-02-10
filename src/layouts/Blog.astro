@@ -78,11 +78,13 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
     <Separator />
   </article>
   <aside class="max-w-3xl sm:px-12 w-full mx-auto">
+    <div class="px-4">
     <SubHeading
       title="Más traducciones"
       ariaLabel="Ver más contenido de traducciones"
       link
     />
+    </div>
     {
       myFeaturedPost.map((post) => (
         <BlogPost
