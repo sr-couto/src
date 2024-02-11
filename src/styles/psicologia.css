@@ -1,3 +1,7 @@
+ol li {
+  @apply !pl-0;
+}
+
 ol li h1 {
   @apply !mb-12;
   text-wrap: balance
